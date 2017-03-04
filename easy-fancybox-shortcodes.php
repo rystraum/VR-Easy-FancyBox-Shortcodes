@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 				'class' => '', // fancybox class
 			), $atts));
 
-			$box_num = intval($box);
+			$box_num = $box;
 			$class = esc_html($class);
 			$fancybox = 'fancyboxID-'.$box_num;
 			$width = intval($width);
@@ -95,7 +95,7 @@ add_shortcode('easyfbox', 'vr_easyfbox');
 				'box' => '', // popup box number
 			), $atts));
 
-			$box_num = (int)$box;
+			$box_num = preg_replace('/\s+/', '-', $box);
 
 			$data='
 			  <a href="#fancyboxID-'.$box.'" class="fancybox-inline">
